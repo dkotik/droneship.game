@@ -1,0 +1,21 @@
+---
+import DefaultLayout from "../layouts/Default.astro";
+
+const updated = (new Date())
+    .toLocaleDateString(undefined, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+---
+<DefaultLayout
+    title="Not Found"
+    description="Requested page was not found"
+>
+    <h1>Not Found</h1>
+    <p>The selected page cannot be found.</p>
+    <p>Website was last updated on {updated}.</p>
+
+
+    <!--
+    <h1>Страница не существует</h1>
+    <p>Запрошенный ресурс не найден на сервере.</p>
+    -->
+
+</DefaultLayout>
