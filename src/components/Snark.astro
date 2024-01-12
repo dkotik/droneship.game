@@ -1,0 +1,43 @@
+---
+import { getEntry } from 'astro:content'
+
+interface Props {
+	author: string;
+}
+
+
+const author = await getEntry('authors', Astro.props.author)
+---
+
+<blockquote>
+  <slot />
+  <cite>-&nbsp;
+  { author.data.name }
+  </cite>
+  <!--<a href={author.data.slug}></a>-->
+</blockquote>
+
+<style>
+blockquote {
+  font-size: 0.9rem;
+  background-color: #f2edff;
+  border-color: #8e68ed;
+  border-radius: 0.4rem;
+  padding: 0.4rem 1.2rem 0.5rem 1.2rem;
+}
+
+blockquote > :global(p) {
+  text-decorate: italicize;
+}
+
+blockquote > :global(p:last-of-type) {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+cite {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+}
+</style>
