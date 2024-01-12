@@ -16,8 +16,9 @@ const blog = defineCollection({
 const authors = defineCollection({
 	type: 'content',
 	// Type-check frontmatter using a schema
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		name: z.string(),
+    image: image(),
 		// description: z.string(),
 		// // Transform string to Date object
 		// pubDate: z.coerce.date(),

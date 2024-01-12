@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content'
+import { Image } from 'astro:assets'
 
 interface Props {
 	author: string;
@@ -9,35 +10,57 @@ interface Props {
 const author = await getEntry('authors', Astro.props.author)
 ---
 
+<cite>{ author.data.name }</cite>
 <blockquote>
-  <slot />
-  <cite>-&nbsp;
-  { author.data.name }
-  </cite>
   <!--<a href={author.data.slug}></a>-->
+  <Image
+    class="author"
+    src={ author.data.image }
+    widths={[64, 128, 196]}
+    sizes={`(max-width: 64px) 64px, (max-width: 128px) 128px, 196px`}
+    alt={ author.data.name }
+  />
+  <slot />
 </blockquote>
 
 <style>
 blockquote {
-  font-size: 0.9rem;
+  font-size: 1rem;
   background-color: #f2edff;
   border-color: #8e68ed;
   border-radius: 0.4rem;
-  padding: 0.4rem 1.2rem 0.5rem 1.2rem;
+  padding: 0.4rem 0.5rem 0.5rem 1.2rem;
+  margin-bottom: 2.8rem;
+}
+
+blockquote > :global(img.author) {
+  border: 2px solid black;
+  max-width: 4rem;
+  border-radius: 50%;
+  margin: -2.5rem 0 0 0.3rem;
+  float: right;
 }
 
 blockquote > :global(p) {
-  text-decorate: italicize;
+  font-style: italic;
+}
+
+blockquote > :global(p:first-of-type) {
+  margin-top: 0rem;
+  padding-top: 0;
 }
 
 blockquote > :global(p:last-of-type) {
-  margin-bottom: 0;
+  margin-bottom: 0rem;
   padding-bottom: 0;
 }
 
 cite {
   display: block;
   text-align: right;
+  margin-right: 5.3rem;
   font-weight: bold;
+  font-size: 0.8rem;
+  font-style: normal;
 }
 </style>
