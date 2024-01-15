@@ -1,22 +1,25 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import DefaultLayout from "../layouts/Default.astro";
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Snark from '../components/Snark.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import DefaultLayout from "../layouts/Default.astro"
 ---
 
 <DefaultLayout>
 	<h1>Droneship Game</h1>
-	<p>
-		We are building a Sci-Fi indy card game for Steam Deck.
-	</p>
-  <p>
-    Our first goal is to produce a playable demo version in about six months.
-  </p>
-  <p>
-    The best way to support our efforts right now is to follow us on Twitter <a href="https://twitter.com/droneshipgame" alt="Follow us on Twitter" target="_blank">@droneshipgame</a>.
-  </p>
+  <Snark author="artist">
+  	<p>
+  		We are building a Sci-Fi indy card game for Steam Deck.
+  	</p>
+    <p>
+      Our first goal is to produce a playable demo version in about six months.
+    </p>
+    <p>
+      The best way to support our efforts right now is to follow us on Twitter <a href="https://twitter.com/droneshipgame" alt="Follow us on Twitter" target="_blank">@droneshipgame</a>.
+    </p>
+  </Snark>
 </DefaultLayout>
 
 <style>

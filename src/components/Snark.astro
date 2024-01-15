@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 
 interface Props {
-	author: string;
+	author: string
 }
 
 
@@ -25,12 +25,21 @@ const author = await getEntry('authors', Astro.props.author)
 
 <style>
 blockquote {
-  font-size: 1rem;
+  font-size: 1.1rem;
   background-color: #f2edff;
+  border-left: solid;
+  border-right: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-width: 0.3em;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
   border-color: #8e68ed;
   border-radius: 0.4rem;
   padding: 0.4rem 0.5rem 0.5rem 1.2rem;
   margin-bottom: 2.8rem;
+
+  box-shadow: #26394d 0 0.5em 1.3em -0.6em;
 }
 
 blockquote > :global(img.author) {
@@ -46,7 +55,7 @@ blockquote > :global(p) {
 }
 
 blockquote > :global(p:first-of-type) {
-  margin-top: 0rem;
+  margin-top: 0.3rem;
   padding-top: 0;
 }
 
